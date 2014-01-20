@@ -15,7 +15,7 @@ Tarkoitus on testata algoritmaja erillaisilla syötteillä joilla tulsi hiukan e
 
 Lähteenä käytin tähän mennessä Wikipediaa. Katsotaan tarvitsenko jotain muuta. Lienevät kuitenkin aika standardi algoritmit tässä kyseessä.
 
-Ei kai tässä muuta.
+Ei kai tässä muuta. 
 
 Heikki Rantala
 20.1.2014
