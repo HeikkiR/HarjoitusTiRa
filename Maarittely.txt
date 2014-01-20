@@ -1,6 +1,6 @@
-Harjoitustyön määrittely dokumentti
+Harjoitustyön määrittelydokumentti
 
-Toteutan TiRa-harjoitustyönä kolme järjestysalgoritmia: quicksort, merge sort ja bubble sort.
+Toteutan TiRa-harjoitustyönä Java-kielellä kolme järjestysalgoritmia: quicksort, merge sort ja bubble sort.
 
 Syötteet ovat luonnollisia lukuja. Syötteet luetaan tekstitiedostosta ja palautetaan tekstitiedostona nousevasti järjestettynä.
 
