@@ -1,0 +1,21 @@
+Harjoitustyön määrittelydokumentti
+
+Toteutan TiRa-harjoitustyönä Java-kielellä kolme järjestysalgoritmia: quicksort, merge sort ja bubble sort.
+
+Syötteet ovat luonnollisia lukuja. Syötteet luetaan tekstitiedostosta ja palautetaan tekstitiedostona nousevasti järjestettynä.
+
+Bubble sort algoritmin huonoimman tapauksen aikavaatimuksen tulee olla O(n2) ja tilaaatimuksen O(1).
+
+Merge sort algoritmin huonoimman tapauksen aikavaatimuksen tulee olla O(n log n) ja tilavaatimuksen O(n).
+
+Quicksort algoritmin huonoimman tapauksen aikavaatimuksen tulee olla O(n2) mutta keskimäärin O(n log n). Tilavaatimukseksi tulee joko O(n) tai jos innostun kunnianhimoiseksi niin O(log n).
+
+
+Tarkoitus on testata algoritmaja erillaisilla syötteillä joilla tulsi hiukan erilaisia tuloksia nopeudessa.
+
+Lähteenä käytin tähän mennessä Wikipediaa. Katsotaan tarvitsenko jotain muuta. Lienevät kuitenkin aika standardi algoritmit tässä kyseessä.
+
+Ei kai tässä muuta. 
+
+Heikki Rantala
+20.1.2014
