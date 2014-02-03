@@ -27,7 +27,7 @@ public class TiRa {
         taulukko[5] = 9;
         
         Jarjestaja sortti = new Jarjestaja();
-        sortti.kupla(taulukko);
+        sortti.quickSort(taulukko);
         
         
         System.out.println(taulukko[0]);

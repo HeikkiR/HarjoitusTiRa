@@ -1,18 +1,23 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package tira;
 
 /**
- *
+ * Luokka sisältää kolme erilaista järjestämismetodia: mergesort, quiksort ja bublesort.
+ * 
+ * Tällä hetkellä mergesort ilmeisesti bugaa, ja vaatii hiomista. 
+ * 
+ * Sisältää Javan taulukko tietorakenteen käyttöä joka ilmeisesti korvattava.
+ * Muuten en heti keksi mitä tietorakenteita tässä pitäisi korvata.
+ * 
  * @author Heikki Rantala
  * @version 0.2 3.2.2014
  */
 public class Jarjestaja {
    
-    public Jarjestaja(){}
-
+/**
+ * Buble sort
+ * 
+ * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+ */
     public static void kupla(int[] taulu){ 
         
         for(int i=0;i<taulu.length;i++){
@@ -33,7 +38,16 @@ public class Jarjestaja {
         return;
     }
     
-    int jako(int[] taulu, int vasen, int oikea) {
+    /**
+     * Quicksortin apumetodi, mahdollisesti muokkausta vaativa
+     * 
+     * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+     * @param vasen
+     * @param oikea
+     * @return 
+     */
+    
+    private int jako(int[] taulu, int vasen, int oikea) {
         
       int i = vasen;
       int j = oikea;
@@ -57,32 +71,53 @@ public class Jarjestaja {
       return i;
     }
  
-void quick(int taulu[], int vasen, int oikea) {
+/**
+ * Quicksortin apumetodi
+ * 
+ * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+ * @param vasen
+ * @param oikea 
+ */
     
-      int index = jako(taulu, vasen, oikea);
+     private void quick(int taulu[], int vasen, int oikea) {
+    
+        int index = jako(taulu, vasen, oikea);
       
-      if (vasen < index - 1)
+        if (vasen < index - 1)
             quick(taulu, vasen, index - 1);
-      if (index < oikea)
+        if (index < oikea)
             quick(taulu, index, oikea);
     }
     
-public void quickSort(int taulu[]) {
-    quick(taulu,0,taulu.length - 1);
-}
+/**
+ * Quicksort-toteutuksen varsinainen kutsuttava metodi.
+ * 
+ * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+ */ 
+     
+    public void quickSort(int taulu[]) {
+        quick(taulu,0,taulu.length - 1);
+    }
 
-
- static public void merge(int [] taulu, int vasen, int keski, int oikea)
+/**
+ * Mergesortin apumetodi, vaatinee vielä hiomista
+ * 
+ * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+ * @param vasen
+ * @param keski
+ * @param oikea 
+ */
+    
+    private void merge(int [] taulu, int vasen, int keski, int oikea)
       {
-        int [] temp = new int[20];
-        int i;
+        int [] temp = new int[taulu.length];  // bugi lienee täällä, palataan asiaan
         int vasenVika;
-        int alkiot;
+        int kohta;
         int apu;
     
         vasenVika = (keski - 1);
         apu = vasen;
-        alkiot = (oikea - vasen + 1);
+        kohta = (oikea - vasen + 1);
     
         while ((vasen <= vasenVika) && (keski <= oikea))
         {
@@ -98,14 +133,20 @@ public void quickSort(int taulu[]) {
         while (keski <= oikea)
             temp[apu++] = taulu[keski++];
  
-        for (i = 0; i < alkiot; i++)
+        for (int i = 0; i < kohta; i++)
         {
             taulu[oikea] = temp[oikea];
             oikea--;
         }
     }
- 
-    static public void mergesortti(int [] taulu, int vasen, int oikea)
+ /**
+  * Mergesorin apumetodi 
+  * 
+  * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+  * @param vasen
+  * @param oikea 
+  */
+    private void mergesortti(int [] taulu, int vasen, int oikea)
     {
       int keskiKohta;
     
@@ -117,7 +158,11 @@ public void quickSort(int taulu[]) {
         merge(taulu, vasen, (keskiKohta+1), oikea);
       }
     }
- 
+ /**
+  * Mergesotin varsinainen kutsuttava metodi
+  * 
+  * @param taulu Javan taulukko, joka ilmeisesti korvattava omalla tietorakenteella lopulliseen
+  */
     public void mergesort(int [] taulu) {
         mergesortti(taulu, 0, taulu.length - 1);
     }
