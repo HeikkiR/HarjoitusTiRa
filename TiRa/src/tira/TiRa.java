@@ -10,6 +10,8 @@ package tira;
  *
  * @author Veikko
  */
+
+
 public class TiRa {
 
     /**
@@ -19,22 +21,21 @@ public class TiRa {
         int[] taulukko = new int[6];
         taulukko[0] = 8;
         taulukko[1] = 4;
-        taulukko[2] =6;
-        taulukko[3] = 10;
-        taulukko[4] = 7;
+        taulukko[2] =3;
+        taulukko[3] = 21;
+        taulukko[4] = 877;
         taulukko[5] = 9;
         
         Jarjestaja sortti = new Jarjestaja();
-        int[] jtaulu = new int[6];
-        jtaulu = sortti.kupla(taulukko);
+        sortti.kupla(taulukko);
         
         
-        System.out.println(jtaulu[0]);
-        System.out.println(jtaulu[1]);
-        System.out.println(jtaulu[2]);
-        System.out.println(jtaulu[3]);
-        System.out.println(jtaulu[4]);
-        System.out.println(jtaulu[5]);
+        System.out.println(taulukko[0]);
+        System.out.println(taulukko[1]);
+        System.out.println(taulukko[2]);
+        System.out.println(taulukko[3]);
+        System.out.println(taulukko[4]);
+        System.out.println(taulukko[5]);
     }
     
 }
