@@ -1,0 +1,7 @@
+Kaikille kolmelle algoritmille löytyy omat junit testinsä, jotka testaavat järjestämisen nopeutta eri kokoisilla taulukoilla. 
+
+1000000 on käytännössä maksimi taulukon koko koska muuten kuplajärjestäminen joutuisi pyörimään päiviä tai jopa viikkoja.
+
+Muuten pyörivät hyvin, mutta quicksort menee stack overflow erroriin yllättävän pienillä taulukoilla jos sitä kerjää. (Ja kerjäsin.)
+
+Ehkä teen vielä jotain erilaista testiä jos jaksan.
