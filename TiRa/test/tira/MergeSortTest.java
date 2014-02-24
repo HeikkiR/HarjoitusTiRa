@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * Mergesort testit
  * 
  * @author Heikki Rantala
- * @version 0.8
+ * @version 1
  */
 public class MergeSortTest {
     

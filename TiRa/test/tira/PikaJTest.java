@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  * 
  *
  * @author Heikki Rantala
- * @version 0.8
+ * @version 1
  */
 public class PikaJTest {
     
