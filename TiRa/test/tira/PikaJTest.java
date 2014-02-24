@@ -22,7 +22,8 @@ public class PikaJTest {
         private int[] taulu2;
         private int[] taulu3;
         private int[] taulu4;
-        private int max = 30000;
+        private int[] taulu5;
+        private int max = 50000;
     
     /**
      * Luo neljä järjestettävää taulukkoa jotka ovat aina kymmenen kertaa toisiaan suurempia
@@ -33,7 +34,8 @@ public class PikaJTest {
         taulu2 = new int[10000];
         taulu3 = new int[100000];
         taulu4 = new int[1000000];
-        
+        taulu5 = new int[10000000];
+
         Random sattuma = new Random();
         
         for (int i = 0; i < taulu1.length; i++) {
@@ -51,6 +53,11 @@ public class PikaJTest {
         for (int i = 0; i < taulu4.length; i++) {
             taulu4[i] = sattuma.nextInt(max);
             }
+        
+        for (int i = 0; i < taulu5.length; i++) {
+            taulu5[i] = sattuma.nextInt(max);
+            }
+        
     }
     
     @After
@@ -62,7 +69,7 @@ public class PikaJTest {
      */
     @Test
     public void testSort() {
-        
+             
         long aloitusAika;
         long lopetusAika;
         long kokonaisAika;
@@ -130,17 +137,51 @@ public class PikaJTest {
             fail("Virhe.");
             }
         
+        aloitusAika = System.currentTimeMillis();
+        
+        kokeiltava.sort(taulu5);
+        
+        lopetusAika = System.currentTimeMillis();
+        kokonaisAika = lopetusAika - aloitusAika;
+        
+        System.out.println("pika 10000000 alkioinen taulukko " + kokonaisAika);
+        
+        if(!tarkastaja(taulu5)) {
+            fail("Virhe.");
+            }
+        
+        
+
+        // Lopuksi yritetään järjestää, valmiiksi järjestetty 10000 alkionen taulukko, mikä epäonnistuu 
+
+        aloitusAika = System.currentTimeMillis();
+        
+        kokeiltava.sort(taulu4);
+        
+        lopetusAika = System.currentTimeMillis();
+        kokonaisAika = lopetusAika - aloitusAika;
+        
+        System.out.println("pika 1000000 alkioinen melkein järjestetty taulukko " + kokonaisAika);
+        
+        if(!tarkastaja(taulu2)) {
+            fail("Virhe.");
+            }
+
+ 
+        // lopetus
+        
         assertTrue(true);
     }
+    
     /**
      * Järjestyksen tarkastus metodi
      */   
-    private boolean tarkastaja(int[] taulukko) {
-    for (int i = 0; i < taulukko.length - 1; i++) {
-      if (taulukko[i] > taulukko[i + 1]) {
-        return false;
-      }
+     private boolean tarkastaja(int[] taulukko) {
+        for (int i = 0; i < taulukko.length - 1; i++) {
+            if (taulukko[i] > taulukko[i + 1]) {
+                return false;
+                }
+            }
+        return true;
     }
-    return true;
-  }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package tira;
 
@@ -15,7 +10,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Mergesort testit
+ * 
  * @author Heikki Rantala
  * @version 0.8
  */
@@ -25,7 +21,8 @@ public class MergeSortTest {
         private int[] taulu2;
         private int[] taulu3;
         private int[] taulu4;
-        private int max = 30000;
+        private int[] taulu5;
+        private int max = 50000;
     
     /**
      * Luo neljä järjestettävää taulukkoa jotka ovat aina kymmenen kertaa toisiaan suurempia
@@ -36,6 +33,7 @@ public class MergeSortTest {
         taulu2 = new int[10000];
         taulu3 = new int[100000];
         taulu4 = new int[1000000];
+        taulu5 = new int[10000000];
         
         Random sattuma = new Random();
         
@@ -53,6 +51,11 @@ public class MergeSortTest {
         for (int i = 0; i < taulu4.length; i++) {
             taulu4[i] = sattuma.nextInt(max);
             }
+        
+        for (int i = 0; i < taulu5.length; i++) {
+            taulu5[i] = sattuma.nextInt(max);
+            }
+        
     }
     
     @After
@@ -128,17 +131,63 @@ public class MergeSortTest {
             fail("Virhe.");
             }
         
+        aloitusAika = System.currentTimeMillis();
+        
+        kokeiltava.sort(taulu5);
+        
+        lopetusAika = System.currentTimeMillis();
+        kokonaisAika = lopetusAika - aloitusAika;
+        
+        System.out.println("merge 10000000 alkioinen taulukko " + kokonaisAika);
+        
+        if(!tarkastaja(taulu5)) {
+            fail("Virhe.");
+            }
+        
+        taulu4[4467]=3345;
+        taulu4[877]=25666;
+        
+        aloitusAika = System.currentTimeMillis();
+        
+        kokeiltava.sort(taulu4);
+        
+        lopetusAika = System.currentTimeMillis();
+        kokonaisAika = lopetusAika - aloitusAika;
+        
+        System.out.println("merge 1000000 alkioinen melkein järjestetty taulukko " + kokonaisAika);
+        
+        if(!tarkastaja(taulu4)) {
+            fail("Virhe.");
+            }
+        
+        kokeiltava.sort(taulu4);
+        taulu4[4467]=3345;
+        taulu4[877]=25666;
+        
+        KuplaJ kupla = new KuplaJ();
+        
+        aloitusAika = System.currentTimeMillis();
+        
+        kupla.sort(taulu4);
+        
+        lopetusAika = System.currentTimeMillis();
+        kokonaisAika = lopetusAika - aloitusAika;
+        
+        System.out.println("kupla 1000000 alkioinen melkein järjestetty taulukko " + kokonaisAika);
+        
+        
         assertTrue(true);
     }
+    
     /**
      * Järjestyksen tarkastus metodi
      */   
     private boolean tarkastaja(int[] taulukko) {
-    for (int i = 0; i < taulukko.length - 1; i++) {
-      if (taulukko[i] > taulukko[i + 1]) {
-        return false;
-      }
+        for (int i = 0; i < taulukko.length - 1; i++) {
+            if (taulukko[i] > taulukko[i + 1]) {
+                return false;
+                }
+            }
+        return true;
     }
-    return true;
-  }
 }

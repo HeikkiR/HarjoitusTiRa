@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package tira;
 
@@ -15,12 +10,17 @@ package tira;
  */
 public class KuplaJ {
     
+    /**
+     * 
+     * @param taulu int taulukko
+     */
+    
        public static void sort(int[] taulu){ 
         
-        for(int i=0;i<taulu.length;i++){
+        for(int i=0; i<taulu.length; i++){
                 boolean testi = false;
                 int muisti = 0;
-                for(int j =0;j<taulu.length-i-1;j++){
+                for(int j =0; j<taulu.length-i-1; j++){
                         if(taulu[j]>taulu[j+1]){
                                 muisti = taulu[j];
                                 taulu[j] = taulu[j+1];
@@ -29,7 +29,7 @@ public class KuplaJ {
                         }
                 }
                 
-                if(testi==false) break;
+                if(testi==false) break;       // tarkastaa onko taulukko jo järjestyksessä
         }
         
         return;

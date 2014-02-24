@@ -4,9 +4,8 @@ package tira;
 /**
  * Mergesort algoritmi tira-harjoitustyöhön
  * 
- * 
  * @author Heikki Rantala
- * @version 0.8
+ * @version 0.8  varsinaisesti kokonaan uusi, mutta pitäisi toimia nyt
  */
 public class MergeSort {
   private int[] taulukko;
@@ -14,7 +13,8 @@ public class MergeSort {
 
 /**
  * Varsinainen kutsuttava metodi joka laittaa leikin käyntiin
- * @param taulu on taulukko kokonaislukuja
+ * 
+ * @param taulu on taulukko kokonaislukuja joka siis järjestetään
  */  
   public void sort(int[] taulu) {
     this.taulukko = taulu;
@@ -25,39 +25,39 @@ public class MergeSort {
   /**
    * Rekursiivinen metodi joka hajottaa taulukon osiin
    * 
-   * @param ala
-   * @param yla 
+   * @param vasen
+   * @param oikea 
    */
   
-  private void mergesort(int ala, int yla) {
+  private void mergesort(int vasen, int oikea) {
 
-    if (ala < yla) {
-        int middle = ala + (yla - ala) / 2;
-        mergesort(ala, middle);
-        mergesort(middle + 1, yla);
-        merge(ala, middle, yla);
+    if (vasen < oikea) {
+        int keskiKohta = vasen + (oikea - vasen) / 2;
+        mergesort(vasen, keskiKohta);
+        mergesort(keskiKohta + 1, oikea);
+        merge(vasen, keskiKohta, oikea);
     }
   }
   
 /**
- * Osien yhdistäminen ja varsinainen kärjestäminen
+ * Osien yhdistäminen ja varsinainen järjestäminen
  * 
  * 
- * @param pieni
+ * @param vasen
  * @param keski
- * @param suurin 
+ * @param oikea 
  */
-  private void merge(int pieni, int keski, int suurin) {
+  private void merge(int vasen, int keski, int oikea) {
 
-    for (int i = pieni; i <= suurin; i++) {
+    for (int i = vasen; i <= oikea; i++) {
         apu[i] = taulukko[i];
     }
 
-    int i = pieni;
+    int i = vasen;
     int j = keski + 1;
-    int k = pieni;
+    int k = vasen;
 
-    while (i <= keski && j <= suurin) {
+    while (i <= keski && j <= oikea) {
         if (apu[i] <= apu[j]) {
             taulukko[k] = apu[i];
             i++;

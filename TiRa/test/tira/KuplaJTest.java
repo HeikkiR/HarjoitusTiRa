@@ -21,7 +21,7 @@ public class KuplaJTest {
         private int[] taulu2;
         private int[] taulu3;
         private int[] taulu4;
-        private int max = 30000;
+        private int max = 50000;
     
     /**
      * Luo neljä järjestettävää taulukkoa jotka ovat aina kymmenen kertaa toisiaan suurempia
@@ -124,17 +124,34 @@ public class KuplaJTest {
             fail("Virhe.");
             }
        */ 
+        
+        taulu3[4467]=3345;
+        taulu3[877]=25666;
+        
+        aloitusAika = System.currentTimeMillis();
+        
+        kokeiltava.sort(taulu3);
+        
+        lopetusAika = System.currentTimeMillis();
+        kokonaisAika = lopetusAika - aloitusAika;
+        
+        System.out.println("pika 100000 alkioinen melkein järjestetty taulukko " + kokonaisAika);
+        
+        if(!tarkastaja(taulu3)) {
+            fail("Virhe.");
+            }
+        
         assertTrue(true);
     }
     /**
      * Järjestyksen tarkastus metodi
      */   
     private boolean tarkastaja(int[] taulukko) {
-    for (int i = 0; i < taulukko.length - 1; i++) {
-      if (taulukko[i] > taulukko[i + 1]) {
-        return false;
-      }
+        for (int i = 0; i < taulukko.length - 1; i++) {
+            if (taulukko[i] > taulukko[i + 1]) {
+                return false;
+                }
+            }
+        return true;
     }
-    return true;
-  }
 }

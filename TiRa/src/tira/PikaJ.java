@@ -11,9 +11,9 @@ public class PikaJ {
     
     
  /**
- * Quicksort-toteutuksen varsinainen kutsuttava metodi.
+ * Quicksort-toteutuksen kutsuttava metodi.
  * 
- * @param taulu taulukko
+ * @param taulu int taulukko
  */ 
      
     public void sort(int taulu[]) {
@@ -22,7 +22,7 @@ public class PikaJ {
 
     
     /**
-     * Quicksortin apumetodi
+     * Quicksortin apumetodi jossa varsinainen järjestäminen tapahtuu.
      * 
      * @param taulu tuolukko kokonaislukuja
      * @param vasen kokonaisluku paikka taúlukossa
@@ -35,17 +35,34 @@ public class PikaJ {
       int i = vasen;
       int j = oikea;
       int apu;
+      int pivot;
+ 
       
-      /////////////////////////////
+      // Seuraavassa valitaan pivot arvoksi ensimmäisen, keskimmäisen ja viimeisen luvun mediaani.
       
-      int kohta = taulu[vasen];  // Parempi olisi random kohta, mutta ei ehkä niin mielenkiintoinen vertailusssa.
-     
-      /////////////////////////////
+      int keski = vasen + (oikea-vasen) / 2;
+      if ( (vasen <= keski && keski <= oikea) || (vasen >= keski && keski >= oikea) ) {
+          pivot = taulu[keski];
+      }
+      else 
+          if ((keski <= vasen && vasen <= oikea) || (keski >= vasen && vasen >= oikea) ) {
+              pivot = taulu[vasen];
+          }
+          else {
+              pivot = taulu[oikea];
+          }
+  
+      /*
+      pivot = taulu[vasen];  
+            // Tyhmä vaihtoehtoinen pivot valinta joka tuottaa mielenkiintoisia tuloksia, jopa kaatumisen. Mukana kokeilemise helpottamiseksi.
+      */
+      
+      // Järjestetään lukuja pivot arvoon verraten
       
       while (i <= j) {
-            while (taulu[i] < kohta)
+            while (taulu[i] < pivot)
                   i++;
-            while (taulu[j] > kohta)
+            while (taulu[j] > pivot)
                   j--;
             if (i <= j) {
                   apu = taulu[i];
@@ -60,9 +77,9 @@ public class PikaJ {
     }
  
 /**
- * Quicksortin apumetodi
+ * Quicksortin apumetodi jossa tapahtuu rekursio
  * 
- * @param taulu taulukko
+ * @param taulu int taulukko
  * @param vasen kokonaisluku paikka taulukossa
  * @param oikea kokonaisluku paikka taulukossa
  */
