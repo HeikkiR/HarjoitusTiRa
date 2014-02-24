@@ -6,14 +6,17 @@
 
 package tira;
 
-/**
- *
- * @author HEikki RAntala
- */
 
 
 import java.util.Scanner;
 import java.util.Random;
+
+/**
+ *Pääohjelma jolla voi vertailla järjestysalgoritmien käyttämää aikaa.
+ * 
+ * @author Heikki Rentala
+ * @Version 1
+ */
 
 public class TiRa {
 
@@ -36,7 +39,7 @@ public class TiRa {
            long kokonaisAika;
            
            System.out.println("Anna parametrit muodossa 'x numero', jossa x on algoritmin koodi:");
-           System.out.println(" q = quicksort, m = mergesort, b = bublesort");
+           System.out.println("q = quicksort, m = mergesort, b = bubblesort");
            System.out.println("ja numero on järjestettävän taulukon koko.");
            System.out.println("Esimerkiksi: q 100000 ja enter");
            System.out.println("Lopeta kirjoittamalla 'end' ja enter. Väärän muotoinen syöte kaataa ohjelman herkästi.");
@@ -44,7 +47,7 @@ public class TiRa {
            
            while(true) {
            
-            System.out.println("Anna algoritmin koodi ja taulukon koko");
+            System.out.println("Anna algoritmin koodi ja taulukon koko:");
            
             luettu = lukija.next();
            

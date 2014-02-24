@@ -153,7 +153,9 @@ public class PikaJTest {
         
 
         // Lopuksi yritetään järjestää, valmiiksi järjestetty 10000 alkionen taulukko, mikä epäonnistuu 
-
+        
+        taulu4[567] = -567;
+        
         aloitusAika = System.currentTimeMillis();
         
         kokeiltava.sort(taulu4);

@@ -5,7 +5,7 @@ package tira;
  * Quicksort algoritmi tira harjoitustyöhön
  * 
  * @author Heikki Rantala
- * @Version 0.8  mutta pitäisi olla aika kuosissa
+ * @Version 1 
  */
 public class PikaJ {
     
@@ -17,6 +17,9 @@ public class PikaJ {
  */ 
      
     public void sort(int taulu[]) {
+        if (taulu.length == 0) {       // tarkastetaan onko taulukon pituus 0
+            return;
+        }
         quick(taulu,0,taulu.length - 1);
     }
 
@@ -25,9 +28,9 @@ public class PikaJ {
      * Quicksortin apumetodi jossa varsinainen järjestäminen tapahtuu.
      * 
      * @param taulu tuolukko kokonaislukuja
-     * @param vasen kokonaisluku paikka taúlukossa
-     * @param oikea kokonaisluku paikka taulukossa
-     * @return 
+     * @param vasen int taulukon indeksi
+     * @param oikea int taulukon indeksi
+     * @return taulukko
      */
     
     private int jako(int[] taulu, int vasen, int oikea) {
@@ -38,7 +41,7 @@ public class PikaJ {
       int pivot;
  
       
-      // Seuraavassa valitaan pivot arvoksi ensimmäisen, keskimmäisen ja viimeisen luvun mediaani.
+      // Valitaan pivot arvoksi ensimmäisen, keskimmäisen ja viimeisen luvun mediaani.
       
       int keski = vasen + (oikea-vasen) / 2;
       if ( (vasen <= keski && keski <= oikea) || (vasen >= keski && keski >= oikea) ) {
@@ -71,7 +74,7 @@ public class PikaJ {
                   i++;
                   j--;
             }
-      };
+      }
      
       return i;
     }
@@ -80,8 +83,8 @@ public class PikaJ {
  * Quicksortin apumetodi jossa tapahtuu rekursio
  * 
  * @param taulu int taulukko
- * @param vasen kokonaisluku paikka taulukossa
- * @param oikea kokonaisluku paikka taulukossa
+ * @param vasen int taulukon indeksi
+ * @param oikea int taulukon indeksi
  */
     
      private void quick(int taulu[], int vasen, int oikea) {
@@ -92,6 +95,7 @@ public class PikaJ {
             quick(taulu, vasen, index - 1);
         if (index < oikea)
             quick(taulu, index, oikea);
+        
     }
     
 }
